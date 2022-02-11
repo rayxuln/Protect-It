@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://bgdhbcy3o8rkw"
+path="res://.godot/imported/bounce_2.ogg-80baeb573774a5cae66fb0a47bec00b7.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/bounce_2.ogg"
+dest_files=["res://.godot/imported/bounce_2.ogg-80baeb573774a5cae66fb0a47bec00b7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0

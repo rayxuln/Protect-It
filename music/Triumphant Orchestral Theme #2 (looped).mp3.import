@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dx5incv0r8enc"
+path="res://.godot/imported/Triumphant Orchestral Theme #2 (looped).mp3-c86d4e71ab5778e3d54a8ef7ab015d82.mp3str"
+
+[deps]
+
+source_file="res://music/Triumphant Orchestral Theme #2 (looped).mp3"
+dest_files=["res://.godot/imported/Triumphant Orchestral Theme #2 (looped).mp3-c86d4e71ab5778e3d54a8ef7ab015d82.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0

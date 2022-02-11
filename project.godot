@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Protect It"
+run/main_scene="res://Game.tscn"
+config/custom_user_dir_name="Protect It"
+config/icon="res://icon.png"
+config/quit_on_go_back=false
+config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[autoload]
+
+GameSystem="*res://scripts/GameSystem.gd"
+
+[debug]
+
+gdscript/warnings/unused_parameter=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/redundant_await=false
+
+[display]
+
+window/size/viewport_width=550
+window/size/viewport_height=800
+window/handheld/orientation=1
+window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom_font="res://fonts/default_font.tres"
+
+[importer_defaults]
+
+oggvorbisstr={
+"loop": false,
+"loop_offset": 0
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://lang/lang.en.translation", "res://lang/lang.zh_Hans_CN.translation")
+
+[rendering]
+
+vulkan/rendering/back_end=1
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+anti_aliasing/quality/msaa=3

@@ -1,0 +1,157 @@
+[gd_scene load_steps=17 format=3 uid="uid://0wotsnylniid"]
+
+[ext_resource type="Texture2D" uid="uid://bsrutjr6trqht" path="res://sprites/bg.png" id="1_x3la3"]
+[ext_resource type="PackedScene" uid="uid://dl2i4bcgmwsu0" path="res://prefabs/Ball.tscn" id="2_3qtte"]
+[ext_resource type="Script" path="res://scripts/CameraController.gd" id="4_th5hu"]
+[ext_resource type="Script" path="res://scripts/LineDrawer.gd" id="5_seyfb"]
+[ext_resource type="PackedScene" uid="uid://6i6mm03pg43h" path="res://prefabs/Line.tscn" id="6_qm8gr"]
+[ext_resource type="PackedScene" uid="uid://bq7bgb0lerhhp" path="res://prefabs/Coin.tscn" id="7_jqhto"]
+[ext_resource type="Script" path="res://scripts/spikes/Spikes.gd" id="8_1ady4"]
+[ext_resource type="Texture2D" uid="uid://dcr0en24ec7qs" path="res://sprites/spike.png" id="8_dusjn"]
+[ext_resource type="Script" path="res://scripts/CoinGenerator.gd" id="9_j54rg"]
+[ext_resource type="PackedScene" uid="uid://b0rbcgoun4wsg" path="res://prefabs/Saw.tscn" id="11_kdrlq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xbj4u"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xnh1h"]
+a = Vector2(0, -704)
+b = Vector2(0, 976)
+
+[sub_resource type="Gradient" id="Gradient_xe5wx"]
+offsets = PackedFloat32Array(0, 0.0419162, 0.943114, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.587019, 1, 0.233738, 1, 1, 0.983366, 0.123745, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_v7amn"]
+offsets = PackedFloat32Array(0, 0.0446927, 0.949721, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.13475, 0.27711, 1, 1, 0.0418613, 0.488907, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_2nemg"]
+offsets = PackedFloat32Array(0, 0.0419162, 0.943114, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.813469, 1, 0.142438, 1, 1, 0.983366, 0.123745, 1, 1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qdkj"]
+size = Vector2(552, 66)
+
+[node name="World" type="Node2D"]
+texture_filter = 5
+
+[node name="Background1" type="Sprite2D" parent="."]
+texture = ExtResource( "1_x3la3" )
+centered = false
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(0, 842)
+texture = ExtResource( "1_x3la3" )
+centered = false
+
+[node name="Background3" type="Sprite2D" parent="."]
+position = Vector2(0, 842)
+texture = ExtResource( "1_x3la3" )
+centered = false
+
+[node name="Ball" parent="." instance=ExtResource( "2_3qtte" )]
+
+[node name="Wall" type="StaticBody2D" parent="."]
+physics_material_override = SubResource( "PhysicsMaterial_xbj4u" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource( "SegmentShape2D_xnh1h" )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2(552, 0)
+shape = SubResource( "SegmentShape2D_xnh1h" )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_right = 550
+limit_bottom = 400
+smoothing_enabled = true
+smoothing_speed = 10.0
+script = ExtResource( "4_th5hu" )
+ball_np = NodePath("../Ball")
+bg_1_np = NodePath("../Background1")
+bg_2_np = NodePath("../Background2")
+bg_3_np = NodePath("../Background3")
+wall_np = NodePath("../Wall")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LineDrawer" type="Node2D" parent="CanvasLayer"]
+script = ExtResource( "5_seyfb" )
+point_count = 20
+up_line_color = SubResource( "Gradient_xe5wx" )
+down_line_color = SubResource( "Gradient_v7amn" )
+camera_np = NodePath("../../Camera2D")
+line_prefab = ExtResource( "6_qm8gr" )
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/LineDrawer"]
+default_color = Color(1, 0.933333, 0.886275, 1)
+gradient = SubResource( "Gradient_2nemg" )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="Spikes" type="Area2D" parent="."]
+script = ExtResource( "8_1ady4" )
+
+[node name="Sprite2D" type="Sprite2D" parent="Spikes"]
+position = Vector2(32, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="Sprite2D2" type="Sprite2D" parent="Spikes"]
+position = Vector2(96, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="Sprite2D3" type="Sprite2D" parent="Spikes"]
+position = Vector2(160, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="Sprite2D4" type="Sprite2D" parent="Spikes"]
+position = Vector2(224, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="Sprite2D5" type="Sprite2D" parent="Spikes"]
+position = Vector2(288, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="Sprite2D6" type="Sprite2D" parent="Spikes"]
+position = Vector2(352, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="Sprite2D7" type="Sprite2D" parent="Spikes"]
+position = Vector2(416, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="Sprite2D8" type="Sprite2D" parent="Spikes"]
+position = Vector2(480, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="Sprite2D9" type="Sprite2D" parent="Spikes"]
+position = Vector2(544, 368)
+texture = ExtResource( "8_dusjn" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
+position = Vector2(276, 367)
+shape = SubResource( "RectangleShape2D_7qdkj" )
+
+[node name="CoinGenerator" type="Node" parent="."]
+script = ExtResource( "9_j54rg" )
+coin_prefab = ExtResource( "7_jqhto" )
+
+[node name="Timer" type="Timer" parent="CoinGenerator"]
+autostart = true
+
+[node name="SawGenerator" type="Node" parent="."]
+script = ExtResource( "9_j54rg" )
+coin_prefab = ExtResource( "11_kdrlq" )
+
+[node name="Timer" type="Timer" parent="SawGenerator"]
+autostart = true
+
+[connection signal="body_entered" from="Spikes" to="Spikes" method="_on_spikes_body_entered"]
+[connection signal="timeout" from="CoinGenerator/Timer" to="CoinGenerator" method="_on_timer_timeout"]
+[connection signal="timeout" from="SawGenerator/Timer" to="SawGenerator" method="_on_timer_timeout"]

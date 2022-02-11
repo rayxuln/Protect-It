@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://bhkl7ryqat7s0"
+path="res://.godot/imported/game_over.ogg-5be224fad7289ad666d4ded891cd4d1b.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/game_over.ogg"
+dest_files=["res://.godot/imported/game_over.ogg-5be224fad7289ad666d4ded891cd4d1b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://ccdnc2k2r34he"]
+
+[ext_resource type="Script" path="res://scripts/ball/ExplodeEffect.gd" id="1_4e1o0"]
+[ext_resource type="Texture2D" uid="uid://dedwro3xs7jrg" path="res://sprites/dust.png" id="2_7pa1o"]
+
+[sub_resource type="Gradient" id="Gradient_p5gkd"]
+colors = PackedColorArray(1, 1, 1, 0.611765, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r4a30"]
+gradient = SubResource( "Gradient_p5gkd" )
+
+[sub_resource type="Gradient" id="Gradient_7ysa0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nhjen"]
+gradient = SubResource( "Gradient_7ysa0" )
+
+[sub_resource type="Curve" id="Curve_cpib3"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 100), -112.922, 0.0, 0, 0]
+
+[sub_resource type="CurveTexture" id="CurveTexture_7ootr"]
+curve = SubResource( "Curve_cpib3" )
+
+[sub_resource type="Curve" id="Curve_iqujx"]
+_data = [Vector2(0, 1), 0.0, 1.5595, 0, 0, Vector2(0.585586, 1), -1.07637, -1.07637, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+
+[sub_resource type="CurveTexture" id="CurveTexture_ywe2v"]
+curve = SubResource( "Curve_iqujx" )
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_gvok1"]
+lifetime_randomness = 0.36
+emission_shape = 2
+emission_box_extents = Vector3(16, 16, 16)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 122.38
+gravity = Vector3(0, 700, 0)
+initial_velocity_min = 155.0
+initial_velocity_max = 382.24
+angular_velocity_min = 2.68
+angular_velocity_max = 4.47
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_curve = SubResource( "CurveTexture_7ootr" )
+angle_min = -11.8
+angle_max = 79.9
+scale_min = 0.3
+scale_max = 0.7
+scale_curve = SubResource( "CurveTexture_ywe2v" )
+color = Color(0.8, 0.8, 0.8, 0.0980392)
+color_ramp = SubResource( "GradientTexture1D_nhjen" )
+color_initial_ramp = SubResource( "GradientTexture1D_r4a30" )
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+collision_enabled = true
+
+[node name="ExplodeEffect" type="Node2D"]
+position = Vector2(264, 368)
+script = ExtResource( "1_4e1o0" )
+effect_type = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-343.686, -306.039, 680.139, 531.189)
+process_material = SubResource( "ParticlesMaterial_gvok1" )
+texture = ExtResource( "2_7pa1o" )

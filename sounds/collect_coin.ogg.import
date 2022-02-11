@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://bgdhbcy3o8rkw"
+path="res://.godot/imported/collect_coin.ogg-fa7f04d13b1c45a715c53f58c4d4e035.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/collect_coin.ogg"
+dest_files=["res://.godot/imported/collect_coin.ogg-fa7f04d13b1c45a715c53f58c4d4e035.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://6i6mm03pg43h"]
+
+[ext_resource type="Script" path="res://scripts/line/Line.gd" id="1_8gyg5"]
+
+[sub_resource type="Gradient" id="Gradient_xe5wx"]
+offsets = PackedFloat32Array(0, 0.0419162, 0.943114, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.587019, 1, 0.233738, 1, 1, 0.983366, 0.123745, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_v7amn"]
+offsets = PackedFloat32Array(0, 0.0446927, 0.949721, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.13475, 0.27711, 1, 1, 0.0418613, 0.488907, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_458t0"]
+offsets = PackedFloat32Array(0, 0.0419162, 0.943114, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.587019, 1, 0.233738, 1, 1, 0.983366, 0.123745, 1, 1, 1, 1, 1)
+
+[node name="Line" type="Area2D" groups=["line"]]
+monitorable = false
+script = ExtResource( "1_8gyg5" )
+up_line_color = SubResource( "Gradient_xe5wx" )
+down_line_color = SubResource( "Gradient_v7amn" )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(-37, -7, -18, -7)
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(1, 0.933333, 0.886275, 1)
+gradient = SubResource( "Gradient_458t0" )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[connection signal="body_entered" from="." to="." method="_on_line_body_entered"]

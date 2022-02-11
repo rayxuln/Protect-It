@@ -1,0 +1,33 @@
+keys,en,zh
+Alright,,没问题
+How?,,怎么做？
+"It's so hard, I want to Quit!",,太难了，我还是退出吧
+Loading...,,加载中...
+"Protect it, ok?",,保护它，OK?
+How? You ask.,,怎么做？你问
+Use your mouse (or finger) to draw a line to protect it from dying.,,使用鼠标(或者手指头)画线，防止它死亡
+you lose,,你输了
+Restart,,再来一把
+LOSE_SCORE,Score: %s,本次得分: %s
+LOSE_BEST,Best: %s,最高得分: %s
+REASON_0,Its time has been run out!\nYou just let it been aged.\nUnbelievable.,你让它老死了。
+REASON_1,You let it crashed on the spikes!\nWhat a monster.,你让它在尖刺上坠毁了。
+REASON_2,You let it crash on the rotating spikes!,你让它在旋转尖刺上毁灭了。
+SCORE,Score: %s,得分: %s
+ERROR_1,Can't fetch data from server. [ERROR:%s],
+ERROR_2,Can't parse data from server. [ERROR:%s],
+ERROR_3,Can't post data to server. [ERROR:%s],
+Leaderboard,,排行榜
+ERROR_4,"http get fail (result: %s, code:%s)",
+ERROR_5,"http post fail (result: %s, code:%s)",
+Player Name,,玩家名
+Score,,得分
+Back,,返回
+Enter Your Name,,输入你的名字
+OK,,好了
+Please enter your name here,,请在此输入你的名字
+I want to change my name,,我想改个名字
+on,,开
+off,,关
+SOUND_BUTTON,Sound: %s,音效: %s
+MUSIC_BUTTON,Music: %s,音乐: %s

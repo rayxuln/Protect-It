@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccdnc2k2r34he"]
+
+[ext_resource type="Script" path="res://scripts/ball/ExplodeEffect.gd" id="1_4e1o0"]
+
+[sub_resource type="Gradient" id="Gradient_2a7ev"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.203226, 0.464516, 0.732258, 1)
+colors = PackedColorArray(0.951201, 1, 0.857435, 1, 1, 0.599127, 0, 1, 1, 0.218673, 0, 1, 1, 0.34175, 0, 1, 1, 0.073366, 0.0136428, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6boci"]
+gradient = SubResource( "Gradient_2a7ev" )
+
+[sub_resource type="Curve" id="Curve_iqujx"]
+_data = [Vector2(0, 1), 0.0, 1.5595, 0, 0, Vector2(0.585586, 1), -1.78075, -1.78075, 0, 0, Vector2(1, 0.181818), 0.0, 0.0, 0, 0]
+
+[sub_resource type="CurveTexture" id="CurveTexture_ywe2v"]
+curve = SubResource( "Curve_iqujx" )
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_gvok1"]
+lifetime_randomness = 0.36
+emission_shape = 2
+emission_box_extents = Vector3(16, 16, 16)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 122.38
+gravity = Vector3(0, 700, 0)
+initial_velocity_min = 155.0
+initial_velocity_max = 382.24
+angular_velocity_min = 2.68
+angular_velocity_max = 4.47
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 31.1
+damping_max = 31.18
+angle_min = -11.8
+angle_max = 79.9
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = SubResource( "CurveTexture_ywe2v" )
+color_ramp = SubResource( "GradientTexture1D_6boci" )
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+collision_enabled = true
+
+[node name="ExplodeEffect" type="Node2D"]
+script = ExtResource( "1_4e1o0" )
+effect_type = 0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1000
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-343.686, -306.039, 680.139, 531.189)
+process_material = SubResource( "ParticlesMaterial_gvok1" )
