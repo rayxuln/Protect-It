@@ -24,7 +24,7 @@ func _unhandled_input(event):
 				dragging = false
 				line_2d.visible = false
 				var cam:Camera2D = get_node(camera_np)
-				var cam_pos := cam.get_camera_screen_center() - Vector2(get_viewport().content_scale_size/2)
+				var cam_pos := cam.get_screen_center_position() - Vector2(get_viewport().content_scale_size/2)
 				remove_all_lines()
 				create_line_at(
 					to_global(line_begin_pos)+cam_pos,

@@ -13,9 +13,9 @@ config_version=5
 config/name="Protect It"
 run/main_scene="res://Game.tscn"
 config/custom_user_dir_name="Protect It"
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 config/quit_on_go_back=false
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 [autoload]
 
@@ -48,10 +48,11 @@ oggvorbisstr={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://lang/lang.en.translation", "res://lang/lang.zh_Hans_CN.translation")
+locale/translations=PackedStringArray("res://lang/lang.en.translation", "res://lang/lang.zh.translation")
 
 [rendering]
 
-vulkan/rendering/back_end=1
+renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+vulkan/rendering/back_end=1
 anti_aliasing/quality/msaa=3

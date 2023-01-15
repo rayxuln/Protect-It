@@ -1,155 +1,41 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcyo8na33187"]
+[gd_scene load_steps=13 format=3 uid="uid://dfi51dc1rww86"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_hjeb0"]
 [ext_resource type="Script" path="res://scripts/gui/lose_view/LoseView.gd" id="2_02try"]
 [ext_resource type="Script" path="res://scripts/gui/start_menu/StartMenu.gd" id="2_qnw1j"]
-[ext_resource type="Texture2D" uid="uid://b8rtlev72ag0o" path="res://icon.png" id="3_2wnb5"]
+[ext_resource type="Texture2D" uid="uid://c27b1ngo4ohbt" path="res://smile.png" id="3_u8mq3"]
 [ext_resource type="Script" path="res://scripts/BackDialog.gd" id="4_5ub3m"]
 [ext_resource type="Script" path="res://scripts/gui/leader_board/LeaderBoardView.gd" id="5_4rh8l"]
 [ext_resource type="Script" path="res://scripts/gui/setting_view/SettingView.gd" id="6_me575"]
-[ext_resource type="AudioStream" uid="uid://dx5incv0r8enc" path="res://music/Triumphant Orchestral Theme #2 (looped).mp3" id="7_fkod8"]
 
 [sub_resource type="Gradient" id="Gradient_aij85"]
 interpolation_mode = 2
 colors = PackedColorArray(0, 0.688449, 1, 1, 0, 0.530566, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wlt3w"]
-gradient = SubResource( "Gradient_aij85" )
+gradient = SubResource("Gradient_aij85")
 width = 550
 height = 800
 
 [sub_resource type="Animation" id="Animation_8tnex"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:rect_rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(128, 288)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 385)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TitleLabel:rect_scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_pc7bj"]
 resource_name = "idle"
 length = 5.0
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:rect_scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1.4, 1.075), Vector2(1.2, 1.05), Vector2(1.1, 1.025), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:rect_rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.195477, 0.823795, 0.436332, 0.523599, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect:rect_position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(128, 288), Vector2(128, 288), Vector2(112, 264), Vector2(144, 280), Vector2(112, 296), Vector2(136, 256), Vector2(128, 288)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer:rect_position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 2, 2.9, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 385), Vector2(-24, 368), Vector2(40, 392), Vector2(48, 368), Vector2(-8, 408), Vector2(0, 385)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TitleLabel:rect_scale")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 1.2, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rt32l"]
+_data = {
+"RESET": SubResource("Animation_8tnex"),
+"idle": SubResource("Animation_pc7bj")
 }
 
 [node name="Game" type="Node"]
-script = ExtResource( "1_hjeb0" )
+script = ExtResource("1_hjeb0")
 
 [node name="LoadingLabel" type="Label" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -159,22 +45,21 @@ offset_top = -13.0
 offset_right = 36.5
 offset_bottom = 13.0
 text = "Loading..."
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 102.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -184,27 +69,21 @@ text = "Score: 999"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StartMenu" type="Control" parent="CanvasLayer/Control"]
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "2_qnw1j" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("2_qnw1j")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/StartMenu"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( "GradientTexture2D_wlt3w" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = SubResource("GradientTexture2D_wlt3w")
 
 [node name="TitleLabel" type="Label" parent="CanvasLayer/Control/StartMenu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -213,35 +92,41 @@ offset_left = -235.0
 offset_top = -360.0
 offset_right = 189.0
 offset_bottom = -269.0
-rect_rotation = 0.118682
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 64
 text = "Protect it, ok?"
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/StartMenu"]
-offset_left = 312.0
-offset_top = 208.0
-offset_right = 435.0
-offset_bottom = 310.0
-rect_rotation = 2.1869
+layout_mode = 0
+offset_left = 341.0
+offset_top = 128.0
+offset_right = 464.0
+offset_bottom = 230.0
+rotation = 0.648218
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 72
 text = "==>"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/StartMenu"]
-offset_left = 128.0
-offset_top = 288.0
-offset_right = 192.0
-offset_bottom = 352.0
-rect_pivot_offset = Vector2(0.5, 0.5)
-texture = ExtResource( "3_2wnb5" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 176.0
+offset_top = -188.0
+offset_right = 265.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_u8mq3")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/StartMenu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -251,98 +136,75 @@ offset_top = -15.0
 offset_right = 277.0
 offset_bottom = 273.0
 theme_override_constants/separation = 15
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StartButton" type="Button" parent="CanvasLayer/Control/StartMenu/VBoxContainer"]
-offset_left = 247.0
-offset_right = 305.0
-offset_bottom = 32.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Alright"
 
 [node name="HowButton" type="Button" parent="CanvasLayer/Control/StartMenu/VBoxContainer"]
-offset_left = 250.0
-offset_top = 47.0
-offset_right = 301.0
-offset_bottom = 79.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "How?"
 
 [node name="SettingButton" type="Button" parent="CanvasLayer/Control/StartMenu/VBoxContainer"]
-offset_left = 172.0
-offset_top = 94.0
-offset_right = 380.0
-offset_bottom = 126.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "I want to change my name"
 
 [node name="LeaderBoardButton" type="Button" parent="CanvasLayer/Control/StartMenu/VBoxContainer"]
-offset_left = 224.0
-offset_top = 141.0
-offset_right = 327.0
-offset_bottom = 173.0
+layout_mode = 2
 size_flags_horizontal = 4
 text = "Leaderboard"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/Control/StartMenu/VBoxContainer"]
-offset_left = 173.0
-offset_top = 188.0
-offset_right = 379.0
-offset_bottom = 220.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "It's so hard, I want to Quit!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/StartMenu/VBoxContainer"]
-offset_top = 235.0
-offset_right = 552.0
-offset_bottom = 267.0
+layout_mode = 2
 alignment = 1
 
 [node name="SoundButton" type="Button" parent="CanvasLayer/Control/StartMenu/VBoxContainer/HBoxContainer"]
-offset_left = 190.0
-offset_right = 278.0
-offset_bottom = 32.0
+unique_name_in_owner = true
+layout_mode = 2
 text = "Sound: On"
 
 [node name="MusicButton" type="Button" parent="CanvasLayer/Control/StartMenu/VBoxContainer/HBoxContainer"]
-offset_left = 282.0
-offset_right = 362.0
-offset_bottom = 32.0
+unique_name_in_owner = true
+layout_mode = 2
 text = "Music: On"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/StartMenu"]
 autoplay = "idle"
-anims/RESET = SubResource( "Animation_8tnex" )
-anims/idle = SubResource( "Animation_pc7bj" )
+libraries = {
+"": SubResource("AnimationLibrary_rt32l")
+}
 
 [node name="HowDialog" type="AcceptDialog" parent="CanvasLayer/Control/StartMenu"]
 title = "How? You ask."
 dialog_text = "Use your mouse (or finger) to draw a line to protect it from dying."
-script = ExtResource( "4_5ub3m" )
+script = ExtResource("4_5ub3m")
 
 [node name="LoseView" type="Control" parent="CanvasLayer/Control"]
 visible = false
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "2_02try" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("2_02try")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/LoseView"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TitleLabel" type="Label" parent="CanvasLayer/Control/LoseView"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -360,38 +222,26 @@ autowrap_mode = 3
 uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/LoseView"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -72.0
 offset_bottom = 112.0
 theme_override_constants/separation = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RestartButton" type="Button" parent="CanvasLayer/Control/LoseView/VBoxContainer"]
-offset_left = 244.0
-offset_right = 305.0
-offset_bottom = 32.0
+layout_mode = 2
 size_flags_horizontal = 4
 text = "Restart"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BackButton" type="Button" parent="CanvasLayer/Control/LoseView/VBoxContainer"]
-offset_left = 252.0
-offset_top = 52.0
-offset_right = 297.0
-offset_bottom = 84.0
+layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ReasonLabel" type="Label" parent="CanvasLayer/Control/LoseView"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -401,72 +251,53 @@ theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
 theme_override_font_sizes/font_size = 24
 text = "you just lose the"
 horizontal_alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PanelContainer" type="CenterContainer" parent="CanvasLayer/Control/LoseView"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -144.0
 offset_bottom = -80.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/LoseView/PanelContainer"]
-offset_left = 218.0
-offset_right = 332.0
-offset_bottom = 66.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = -10
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Control/LoseView/PanelContainer/VBoxContainer"]
-offset_right = 114.0
-offset_bottom = 38.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
 theme_override_font_sizes/font_size = 24
 text = "Score: 100"
 vertical_alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BestLabel" type="Label" parent="CanvasLayer/Control/LoseView/PanelContainer/VBoxContainer"]
-offset_top = 28.0
-offset_right = 114.0
-offset_bottom = 66.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
 theme_override_font_sizes/font_size = 24
 text = "Best: 100"
 vertical_alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LeaderBoardView" type="Control" parent="CanvasLayer/Control"]
 visible = false
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "5_4rh8l" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("5_4rh8l")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/LeaderBoardView"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/LeaderBoardView"]
+layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 24.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 64
 text = "Leaderboard"
@@ -475,6 +306,7 @@ vertical_alignment = 1
 
 [node name="LoadingLabel" type="Label" parent="CanvasLayer/Control/LeaderBoardView"]
 visible = false
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -483,11 +315,9 @@ offset_bottom = -277.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Loading..."
 horizontal_alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BackButton" type="Button" parent="CanvasLayer/Control/LeaderBoardView"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -499,12 +329,13 @@ offset_bottom = 344.0
 text = "Back"
 
 [node name="GetHTTPRequest" type="HTTPRequest" parent="CanvasLayer/Control/LeaderBoardView"]
-timeout = 30000
+timeout = 30000.0
 
 [node name="PostHTTPRequest" type="HTTPRequest" parent="CanvasLayer/Control/LeaderBoardView"]
-timeout = 30000
+timeout = 30000.0
 
 [node name="DataTree" type="Tree" parent="CanvasLayer/Control/LeaderBoardView"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -512,9 +343,9 @@ offset_left = 24.0
 offset_top = -248.0
 offset_right = -22.0
 offset_bottom = 264.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 columns = 2
 column_titles_visible = true
 allow_reselect = true
@@ -523,24 +354,21 @@ hide_folding = true
 hide_root = true
 select_mode = 1
 scroll_horizontal_enabled = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SettingView" type="Control" parent="CanvasLayer/Control"]
 visible = false
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "6_me575" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("6_me575")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/SettingView"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TitleLabel" type="Label" parent="CanvasLayer/Control/SettingView"]
+layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 208.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -548,11 +376,9 @@ theme_override_font_sizes/font_size = 52
 text = "Enter Your Name"
 horizontal_alignment = 1
 vertical_alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/SettingView"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
@@ -561,35 +387,23 @@ offset_right = -22.0
 offset_bottom = -208.0
 theme_override_constants/separation = 25
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control/SettingView/VBoxContainer"]
-offset_left = 106.0
-offset_top = 95.0
-offset_right = 406.0
-offset_bottom = 127.0
-rect_min_size = Vector2(300, 0)
+layout_mode = 2
 size_flags_horizontal = 4
-clear_button_enabled = true
 placeholder_text = "Please enter your name here"
+clear_button_enabled = true
 
 [node name="OkButton" type="Button" parent="CanvasLayer/Control/SettingView/VBoxContainer"]
-offset_left = 206.0
-offset_top = 152.0
-offset_right = 306.0
-offset_bottom = 184.0
-rect_min_size = Vector2(100, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 disabled = true
 text = "OK"
 
 [node name="ErrorDialog" type="AcceptDialog" parent="CanvasLayer/Control"]
-script = ExtResource( "4_5ub3m" )
+script = ExtResource("4_5ub3m")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "7_fkod8" )
 autoplay = true
 bus = &"Music"
 

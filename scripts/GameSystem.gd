@@ -112,21 +112,18 @@ func update_best_score(s, post:=true):
 	save_savedata()
 
 func load_savedata():
-	var dir := Directory.new()
-	dir.open('user://')
+	var dir := DirAccess.open('user://')
 	var path:String = ProjectSettings.globalize_path('user://' + savedata_path)
 	if not dir.file_exists(path):
 		print('Sexy not exists!')
 		save_savedata()
 		return
-	var file := File.new()
-	var err := file.open_encrypted_with_pass(path, File.READ, password)
-	if err != OK:
-		push_error('Can\'t open savedata file at: %s. Code: %s' % [path, err])
+	var file := FileAccess.open_encrypted_with_pass(path, FileAccess.READ, password)
+	if file == null:
+		push_error('Can\'t open savedata file at: %s. Code: %s' % [path, FileAccess.get_open_error()])
 		return
 	var json := JSON.new()
-	err = json.parse(file.get_as_text())
-	file.close()
+	var err = json.parse(file.get_as_text())
 	if err != OK:
 		push_error('Can\'t read savedata! Code: %s' % [err])
 		return
@@ -143,17 +140,14 @@ func load_savedata():
 	print('Loaded savedata from: %s' % [path])
 
 func save_savedata():
-	var dir := Directory.new()
+	var dir := DirAccess.open('user://')
 	var path:String = ProjectSettings.globalize_path('user://' + savedata_path)
 	if dir.file_exists(path):
-		dir.open('user://')
 		dir.remove(path)
-	var file := File.new()
-	var err := file.open_encrypted_with_pass(path, File.WRITE, password)
-	if err != OK:
-		push_error('Can\'t open savedata file at: %s. Code: %s' % [path, err])
+	var file := FileAccess.open_encrypted_with_pass(path, FileAccess.WRITE, password)
+	if file == null:
+		push_error('Can\'t open savedata file at: %s. Code: %s' % [path, FileAccess.get_open_error()])
 		return
-	var json := JSON.new()
 	var d := {
 		'best_score': best_score,
 		'player_name': player_name,
@@ -161,8 +155,7 @@ func save_savedata():
 		'enable_music': enable_music,
 	}
 	print('save: ', d)
-	file.store_string(json.stringify(d))
-	file.close()
+	file.store_string(JSON.stringify(d))
 	print('Save savedata to: %s' % [path])
 
 

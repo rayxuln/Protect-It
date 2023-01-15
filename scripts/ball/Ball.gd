@@ -1,4 +1,4 @@
-extends RigidDynamicBody2D
+extends RigidBody2D
 
 @export var height_health_factor := 1.3
 @export var max_health:float = 100

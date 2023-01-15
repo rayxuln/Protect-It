@@ -1,9 +1,15 @@
 extends Control
 
-@onready var sound_button := $VBoxContainer/HBoxContainer/SoundButton
-@onready var music_button := $VBoxContainer/HBoxContainer/MusicButton
+@onready var sound_button := %SoundButton as Button
+@onready var music_button := %MusicButton as Button
+
+var _bReady := false
 
 #----- Methods -----
+func _ready() -> void:
+	_bReady = true
+
+
 func on_show():
 	update_button_text()
 
@@ -39,6 +45,8 @@ func _on_setting_button_pressed() -> void:
 
 func _on_start_menu_visibility_changed() -> void:
 	if is_visible_in_tree():
+		if not _bReady:
+			await ready
 		on_show()
 
 

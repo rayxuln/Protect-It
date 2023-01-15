@@ -1,11 +1,11 @@
-extends Node2D
+extends Area2D
 
 @export var force := 1000
 @export var up_line_color:Gradient
 @export var down_line_color:Gradient
 
-@onready var line_2d := $Line2D
-@onready var collision := $CollisionPolygon2D
+@onready var line_2d := %Line2D as Line2D
+@onready var collision := %CollisionPolygon2D as CollisionPolygon2D
 
 var normal := Vector2.UP
 var line_w := 0.0
@@ -21,8 +21,10 @@ func gen_line(begin:Vector2, end:Vector2, count:int):
 		var pos = Vector2(0, randf_range(-2, 2)) + begin + i*step
 		line_2d.add_point(line_2d.to_local(pos))
 	
-	collision.polygon[0] = collision.to_local(begin)
-	collision.polygon[1] = collision.to_local(end)
+	var p := collision.polygon
+	p[0] = collision.to_local(begin)
+	p[1] = collision.to_local(end)
+	collision.polygon = p
 	
 	normal = calc_normal(begin, end)
 	if normal.y > 0:
